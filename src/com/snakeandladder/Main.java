@@ -12,11 +12,14 @@ public class Main {
 		Game g = new Game();
 		
 		int prevPos;
+		int count = 0;
 		while(g.pos != 100) {
+			count++;
 			
 			prevPos = g.pos;
 			int dieNumber = g.rollDie();
 			int opt = g.generateOption();
+			
 			
 			switch (opt) {
 			case LADDER:
@@ -43,6 +46,8 @@ public class Main {
 			g.printCurrentPosition();
 		
 		}
+		
+		System.out.println("Dice was thrown "+count+" times");
 		
 	}
 
