@@ -11,24 +11,32 @@ public class Main {
 		System.out.println("Welcome to Snake and Ladder Game");
 		Game g = new Game();
 		
-		int dieNumber = g.rollDie();
-		int opt = g.generateOption();
+		while(g.pos < 100) {
+			
+			int dieNumber = g.rollDie();
+			int opt = g.generateOption();
+			
+			switch (opt) {
+			case LADDER:
+				g.pos += dieNumber;
+				System.out.println("Hit Ladder");
+				break;
+			case SNAKE:
+				g.pos -= dieNumber;
+				System.out.println("Hit Snake");
+				break;
+			case NO_PLAY:
+				System.out.println("Hit No-Play");
+				break;
+			}
+			
+			if(g.pos < 0) {
+				g.pos = 0;
+			}
+			
+			g.printCurrentPosition();
 		
-		switch (opt) {
-		case LADDER:
-			g.pos += dieNumber;
-			System.out.println("Hit Ladder");
-			break;
-		case SNAKE:
-			g.pos -= dieNumber;
-			System.out.println("Hit Snake");
-			break;
-		case NO_PLAY:
-			System.out.println("Hit No-Play");
-			break;
 		}
-		
-		g.printCurrentPosition();
 		
 	}
 
