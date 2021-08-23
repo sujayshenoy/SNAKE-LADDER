@@ -11,8 +11,10 @@ public class Main {
 		System.out.println("Welcome to Snake and Ladder Game");
 		Game g = new Game();
 		
-		while(g.pos < 100) {
+		int prevPos;
+		while(g.pos != 100) {
 			
+			prevPos = g.pos;
 			int dieNumber = g.rollDie();
 			int opt = g.generateOption();
 			
@@ -32,6 +34,10 @@ public class Main {
 			
 			if(g.pos < 0) {
 				g.pos = 0;
+			}
+			
+			if(g.pos > 100) {
+				g.pos = prevPos;
 			}
 			
 			g.printCurrentPosition();
